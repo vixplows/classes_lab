@@ -1,10 +1,12 @@
 class Team
   attr_accessor :team_name, :players, :coach
+  attr_reader :points
 
-  def initialize(team_name, players, coach)
+  def initialize(team_name, players, coach, points)
     @team_name = team_name
     @players = players
     @coach = coach
+    @points = points
   end
 
   def add_player_to_players(new_player)
@@ -18,14 +20,9 @@ class Team
     end
     return match
   end
+
+  def game_points(result)
+    (@points = @points + 1) if result == "win"
+  end
+
 end
-  
-
-  # end
-
-  # def find_pet_by_name(pet_shop, pet_name)
-   # match = nil
-  #   for pet in pets_in_stock(pet_shop)
-  #     match = pet if(pet[:name] == pet_name)
-  #   end
-  #   return match
